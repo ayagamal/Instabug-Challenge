@@ -23,6 +23,8 @@ import android.widget.Button;
 
 import com.instabug.library.Instabug;
 import com.instabug.library.InstabugColorTheme;
+import com.instabug.library.OnSdkDismissedCallback;
+import com.instabug.library.bugreporting.model.Bug;
 import com.instabug.library.invocation.InstabugInvocationMode;
 import com.instabug.library.view.annotation.ColorPickerPopUpView;
 
@@ -69,6 +71,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Instabug.setTheme(InstabugColorTheme.InstabugColorThemeDark);
 
+                if (Instabug.hasValidSurveys()) {
+                    // If user accepts to take a survey, show it.
+                    Instabug.showValidSurvey();
+                }
+
 
             }
         });
@@ -98,13 +105,19 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
             }
         });
-        
+
+        Instabug.setOnSdkDismissedCallback(new OnSdkDismissedCallback() {
+            @Override
+            public void onSdkDismissed(OnSdkDismissedCallback.DismissType dismissType, Bug.Type bugType){
+                layout.setBackgroundColor(Color.RED);
+            }
+        });
 
 
     }
-
 
 
 
