@@ -72,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
                 Instabug.setTheme(InstabugColorTheme.InstabugColorThemeDark);
 
                 if (Instabug.hasValidSurveys()) {
-                    // If user accepts to take a survey, show it.
                     Instabug.showValidSurvey();
                 }
 
