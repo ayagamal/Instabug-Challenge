@@ -5,37 +5,22 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.text.style.BackgroundColorSpan;
 import android.view.View;
 import android.widget.Button;
 
 
-import android.content.Intent;
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 
 import com.instabug.library.Instabug;
 import com.instabug.library.InstabugColorTheme;
 import com.instabug.library.OnSdkDismissedCallback;
 import com.instabug.library.bugreporting.model.Bug;
 import com.instabug.library.invocation.InstabugInvocationMode;
-import com.instabug.library.view.annotation.ColorPickerPopUpView;
-
-import java.util.Locale;
 
 
 
 public class MainActivity extends AppCompatActivity {
 
 
-    Color pallete = new Color();
 
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -79,31 +64,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       NextButton.setOnClickListener(new View.OnClickListener() {
+        NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-           public void onClick(View view) {
+            public void onClick(View view) {
 
                 Intent intent = new Intent(MainActivity.this, NextPage.class);
 
                 startActivity(intent);
-           }
-       });
+            }
+        });
 
         ReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
-
-
-           Instabug.invoke(InstabugInvocationMode.PROMPT_OPTION );
-
-
-
-
-
-
-
+                Instabug.invoke(InstabugInvocationMode.PROMPT_OPTION );
 
             }
         });
@@ -123,4 +98,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
-
